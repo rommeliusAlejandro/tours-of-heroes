@@ -1,0 +1,23 @@
+<div class="row">
+  <div class="col-md-6">
+    <div class="list-group">
+      <div class="list-group-item" *ngFor="let hero of heroes" [class.active]="hero == selectedHero">
+        <a routerLink="/detail/{{hero.id}}">
+          <ul class="list-unstyled list-inline">
+            <li>Id: {{hero.id}}</li>
+            <li>Name: {{hero.name}}</li>
+          </ul>
+        </a>
+        <button class="btn btn-danger float-right" (click)="deleteHero(hero)" >Delete</button>
+      </div>
+    </div>
+  </div>
+  <div class="col-md-6">
+    <div class="form-group">
+      <label>Hero name:
+        <input #heroName />
+      </label>
+    </div>
+    <button class="btn btn-success" (click)="addHero(heroName.value); heroName.value=''">Add</button>
+  </div>
+</div>
